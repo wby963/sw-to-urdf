@@ -1,0 +1,159 @@
+<robot name="urdf_SLDASM">
+
+  <!-- 将 base_link 设为静态，使其固定在场景中不会掉落 -->
+  <gazebo reference="base_link">
+    <static>true</static>
+  </gazebo>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="1.08153612165799 1.08214835844246 1.06849746061429" rpy="0 0 0" />
+      <mass value="0.515894415729789" />
+      <inertia ixx="0.000281707930083893" ixy="-1.98158704211055E-07" ixz="1.1395986494052E-12" iyy="0.00109766801476333" iyz="2.19331815232263E-11" izz="0.000968895308541972" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/wby/sw_ws/install/my_robot_description/share/my_robot_description/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/wby/sw_ws/install/my_robot_description/share/my_robot_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="Link1">
+    <inertial>
+      <origin xyz="0.010723 0.0095107 0.025776" rpy="0 0 0" />
+      <mass value="0.062321" />
+      <inertia ixx="1.101E-05" ixy="9.7956E-08" ixz="-2.584E-06" iyy="2.0531E-05" iyz="-1.0607E-08" izz="1.9558E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/wby/sw_ws/install/my_robot_description/share/my_robot_description/meshes/Link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/wby/sw_ws/install/my_robot_description/share/my_robot_description/meshes/Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint1" type="revolute">
+    <origin xyz="0.98944 -1.1509 1.0768" rpy="3.1416 0 0" />
+    <parent link="base_link" />
+    <child link="Link1" />
+    <axis xyz="0 1 0" />
+    <limit lower="-3.14" upper="3.14" effort="100" velocity="1" />
+    <dynamics damping="0.5" friction="0.2" />
+  </joint>
+
+  <link name="Link2">
+    <inertial>
+      <origin xyz="-0.025776 0.010723 0.0075107" rpy="0 0 0" />
+      <mass value="0.062321" />
+      <inertia ixx="1.9558E-05" ixy="2.584E-06" ixz="1.0607E-08" iyy="1.101E-05" iyz="9.7957E-08" izz="2.0531E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/wby/sw_ws/install/my_robot_description/share/my_robot_description/meshes/Link2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/wby/sw_ws/install/my_robot_description/share/my_robot_description/meshes/Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint2" type="revolute">
+    <origin xyz="0.98944 -0.9841 1.0768" rpy="1.5708 -1.5708 3.1416" />
+    <parent link="base_link" />
+    <child link="Link2" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.14" upper="3.14" effort="100" velocity="1" />
+    <dynamics damping="0.5" friction="0.2" />
+  </joint>
+
+  <link name="Link3">
+    <inertial>
+      <origin xyz="0.0135165236377293 0.00951072390499719 0.0242437483614448" rpy="0 0 0" />
+      <mass value="0.0623209022762895" />
+      <inertia ixx="1.05012943344172E-05" ixy="9.67054556249075E-08" ixz="-2.51032314319484E-06" iyy="2.05307409709613E-05" iyz="-9.05368198723649E-09" izz="2.00664505317877E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/wby/sw_ws/install/my_robot_description/share/my_robot_description/meshes/Link3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/wby/sw_ws/install/my_robot_description/share/my_robot_description/meshes/Link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint3" type="revolute">
+    <origin xyz="1.2054 -1.1509 1.0768" rpy="3.1416 0 0" />
+    <parent link="base_link" />
+    <child link="Link3" />
+    <axis xyz="0 1 0" />
+    <limit lower="-3.14" upper="3.14" effort="100" velocity="1" />
+    <dynamics damping="0.5" friction="0.2" />
+  </joint>
+
+  <link name="Link4">
+    <inertial>
+      <origin xyz="0.0135165234338304 0.00951072348741988 -0.0242437482488531" rpy="0 0 0" />
+      <mass value="0.062320902847455" />
+      <inertia ixx="1.05012944451633E-05" ixy="9.67059467770656E-08" ixz="2.51032306616171E-06" iyy="2.05307410443477E-05" iyz="9.05383176691706E-09" izz="2.00664505192476E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/wby/sw_ws/install/my_robot_description/share/my_robot_description/meshes/Link4.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/wby/sw_ws/install/my_robot_description/share/my_robot_description/meshes/Link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="joint4" type="revolute">
+    <origin xyz="1.2054 -0.9861 1.0768" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="Link4" />
+    <axis xyz="0 1 0" />
+    <limit lower="-3.14" upper="3.14" effort="100" velocity="1" />
+    <dynamics damping="0.5" friction="0.2" />
+  </joint>
+
+</robot>
